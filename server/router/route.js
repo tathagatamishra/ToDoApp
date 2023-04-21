@@ -4,20 +4,26 @@ const router = express.Router();
 const { signup, login, profile } = require("../controller/userCtrl");
 const { create, all, read, update } = require("../controller/taskCtrl");
 
-router.get("/test", (req, res) => {
+
+// Debug API
+router.get("/debug", (_, res) => {
   let data = "😍";
   return res.send({ data: data });
 });
 
+
+// User APIs ---
 router.post("/signup", signup);
 router.post("/login", login);
 router.get("/profile/:id", profile);
 router.get("/edit/:id", profile);
 
+
+// ToDo APIs ---
 router.post("/create", create);
-router.get("/all", all);
 router.get("/read/:id", read);
-router.get("/update/:id", update);
+router.put("/update/:id", update);
+router.delete("/delete/:id", update);
 
 
 module.exports = router;

@@ -1,0 +1,93 @@
+:root {
+    --primary-light: #8abdff;
+    --primary: #6d5dfc;
+    --primary-dark: #5b0eeb;
+
+    --white: #FFFFFF;
+    --greyLight-1: #E4EBF5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+    --greyDark-2: #737d97;
+}
+
+$shadow: .3rem .3rem .6rem var(--greyLight-2),
+    -.2rem -.2rem .5rem var(--white);
+$inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
+    inset -.2rem -.2rem .5rem var(--white);
+
+
+.homeBody {
+    width: 75rem;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.start {
+    display: flex;
+    justify-content: space-between;
+
+    &__add {
+        font-weight: bolder;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        box-shadow: $shadow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: var(--primary);
+        transition: all .5s ease;
+        user-select: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+        & .a {
+            width: 5rem;
+            height: 1rem;
+            border-radius: 50px;
+            background: var(--primary);
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        }
+
+        & .b {
+            width: 1rem;
+            height: 5rem;
+            border-radius: 50px;
+            background: var(--primary);
+            position: absolute;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        }
+        
+        &:hover {
+            .a {
+                background: var(--greyDark);
+            }
+            
+            .b {
+                background: var(--greyDark);
+            }
+            transform: translateY(-5px);
+        }
+
+        &:active {
+            .a {
+                background: var(--greyDark-2);
+            }
+
+            .b {
+                background: var(--greyDark-2);
+            }
+
+            box-shadow: $inner-shadow;
+            transform: translateY(0);
+        }
+    }
+
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}

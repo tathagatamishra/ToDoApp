@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 module.exports = mongoose.model(
-  "task",
+  "progresstask",
 
   new mongoose.Schema(
     {
       category: {
         type: String,
-        enum: ['pending', 'progress', 'completed']
+        enum: ['progress']
       },
       title: String,
       content: String,
