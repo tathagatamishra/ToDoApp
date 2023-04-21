@@ -3,6 +3,36 @@ Todo Web Application for a client. Where the client is able to store its daily T
 
 <br>
 
+## How To Run This
+
+backebd _______________
+```bash
+
+git clone https://github.com/tathagatamishra/ToDoApp.git
+
+cd server
+
+npm i
+
+npm run dev
+
+```
+
+frontend _______________
+```bash
+
+git clone https://github.com/tathagatamishra/ToDoApp.git
+
+cd client
+
+npm i
+
+npm run dev
+
+```
+
+<br><br>
+
 ## Technologies used are :-
 
 ReactJS/ Redux(Frontend)
