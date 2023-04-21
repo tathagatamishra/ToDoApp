@@ -20,8 +20,9 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
     width: 75rem;
     height: fit-content;
     border-radius: 3rem;
-    box-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
-        -.2rem -.2rem 1.8rem var(--white);
+    box-shadow: $shadow;
+    // box-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
+    //     -.2rem -.2rem 1.8rem var(--white);
     padding: 1rem;
     margin-bottom: 3rem;
     display: flex;
@@ -62,7 +63,7 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
         width: 30rem;
         height: 4rem;
         border-radius: 50px;
-        box-shadow: $shadow;
+        box-shadow: $inner-shadow;
         display: flex;
         justify-content: center;
         align-items: center;
