@@ -17,7 +17,7 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
     inset -.2rem -.2rem .5rem var(--white);
 
 
-.components {
+.task_components {
     width: 75rem;
     height: fit-content;
     margin-bottom: 2rem;
@@ -26,8 +26,6 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
         -.2rem -.2rem 1.8rem var(--white);
     padding: 4rem;
     display: grid;
-    // justify-content: space-evenly;
-    // align-items: center;
     align-items: start;
     justify-items: center;
     grid-template-columns: auto auto auto;
@@ -36,71 +34,25 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
     grid-row-gap: 3.5rem;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 1rem;
-
-    &:hover {
-        textarea {
-            box-shadow: $shadow;
-        }
-        button {
-            box-shadow: $shadow;
-        }
-    }
-    & button:active {
-        color: var(--primary);
-    }
-}
-
-form textarea {
-    width: 80%;
-    height: 100%;
-    resize: none;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 1px;
-    background: none;
-}
-
-form button {
-    padding: 1px;
-    width: 30px;
-    height: 34px;
-    // border: none;
-    font-size: 2rem;
-    font-weight: bold;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    background: #c8d0e7;
-}
 
 /*  CARD  */
 
-.card {
+.taskCard {
     justify-self: center;
     width: 20rem;
     height: fit-content;
     padding: 1rem;
     border-radius: 1rem;
+
+    padding-bottom: 4rem;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
     box-shadow: $shadow;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    // width: 10rem;
-    // height: 3rem;
-    // border-radius: 10rem;
-    // margin-left: 1rem;
-    // box-shadow: $shadow;
-    // justify-self: center;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     user-select: none;
     cursor: pointer;
     transition: .3s ease;
@@ -135,17 +87,6 @@ form button {
 
             transform: translateY(-10px);
         }
-
-        // &:active {
-        //     & h2 {
-        //         color: #6557e3;
-        //     }
-        //     & p {
-        //         color: #78839e;
-        //     }
-        //     box-shadow: $inner-shadow;
-        //     transform: translateY(0);
-        // }
     }
 
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -158,9 +99,9 @@ form button {
     height: fit-content;
     min-height: 3.5rem;
     // padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-radius: 1rem;
-    // box-shadow: $shadow;
+    box-shadow: $shadow;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -203,13 +144,91 @@ form button {
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 }
 
-.item {
+
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    & div {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: normal;
+        justify-content: center;
+        align-items: flex-end;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+
+        & .inputs1 {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border-top-left-radius: 10px;
+            padding: 1px;
+            background: var(--greyLight-1);
+            border: none;
+            border-bottom: var(--greyLight-2) 1px solid;
+        }
+        
+        & .inputs2 {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border-bottom-left-radius: 10px;
+            padding: 1px;
+            background: var(--greyLight-1);
+            border: none;
+        }
+    }
+
+    & button {
+        padding: 1px;
+        width: 20%;
+        height: 7rem;
+        // border: none;
+        font-size: 2rem;
+        font-weight: bold;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        background: #c8d0e7;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    }
+
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+    &:hover {
+        div {
+            box-shadow: $shadow;
+        }
+
+        button {
+            box-shadow: $shadow;
+            background: #dfdbff;
+            transform: translateY(-.5px);
+        }
+    }
+
+    & button:active {
+        color: var(--primary);
+        transform: translateY(.5px);
+        box-shadow: $inner-shadow;
+    }
+}
+
+
+.taskItem {
     justify-self: center;
     width: 18rem;
     height: fit-content;
     min-height: 3.5rem;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     border-radius: 1rem;
     box-shadow: $shadow;
     display: flex;
