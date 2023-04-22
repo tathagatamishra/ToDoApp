@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { signup, login, profile } = require("../controller/userCtrl");
-const { create, all, read, update } = require("../controller/taskCtrl");
+const { create, read, update, remove } = require("../controller/taskCtrl");
 
 
 // Debug API
@@ -23,7 +23,7 @@ router.get("/edit/:id", profile);
 router.post("/create", create);
 router.get("/read/:id", read);
 router.put("/update/:id", update);
-router.delete("/delete/:id", update);
+router.delete("/delete/:id", remove);
 
 
 module.exports = router;

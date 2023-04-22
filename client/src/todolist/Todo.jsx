@@ -12,7 +12,7 @@ export default function Todo() {
   // Fetching Data
   useEffect(() => {
     axios
-      .get("http://localhost:5000/read/64426dd2ec247b64ed058aaa")
+      .get("https://what-to-do-bro.vercel.app/read/64426dd2ec247b64ed058aaa")
       .then((response) => {
         let allTask = response.data.data;
 
@@ -35,7 +35,7 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post("https://what-to-do-bro.vercel.app/create", newTask)
       .then((res) => {
         console.log(res.data);
       })
@@ -56,10 +56,10 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post("https://what-to-do-bro.vercel.app/create", newTask)
       .then((res) => {
         console.log(res.data);
-        event.target.reset()
+        event.target.reset();
       })
       .catch((err) => {
         alert(err.message);
@@ -78,7 +78,7 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post("https://what-to-do-bro.vercel.app/create", newTask)
       .then((res) => {
         console.log(res.data);
       })
@@ -86,6 +86,23 @@ export default function Todo() {
         alert(err.message);
         console.log(err);
       });
+  }
+
+  function deleteProgress(key) {
+    console.log(key);
+
+    let removeTask = {
+      category: "progress",
+      key: "0",
+    };
+    axios
+      .delete(
+        "http://localhost:5000/delete/64426dd2ec247b64ed058aaa",
+        removeTask
+      )
+      .then(() => {
+        console.log("delete");
+      })
   }
 
   if (data) {
@@ -136,6 +153,7 @@ export default function Todo() {
             );
           })}
         </div>
+
         <div className="taskCard taskCard__secondary">
           <h1>Progress</h1>
 
@@ -169,7 +187,10 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
-                  <div className="crossButton">
+                  <div
+                    className="crossButton"
+                    onClick={() => deleteProgress(i)}
+                  >
                     <IonIcon icon={close} />
                   </div>
                 </div>
@@ -213,19 +234,17 @@ export default function Todo() {
           {/* Tasks */}
           {data[2].map((element, i) => {
             return (
-              <>
-                <div key={i} className="taskItem taskItem__secondary">
-                  <div className="cross">
-                    <div className="crossButton">
-                      <IonIcon icon={close} />
-                    </div>
-                  </div>
-                  <div className="text">
-                    <h2>{element.title}</h2>
-                    <p>{element.content}</p>
+              <div key={i} className="taskItem taskItem__secondary">
+                <div className="cross">
+                  <div className="crossButton">
+                    <IonIcon icon={close} />
                   </div>
                 </div>
-              </>
+                <div className="text">
+                  <h2>{element.title}</h2>
+                  <p>{element.content}</p>
+                </div>
+              </div>
             );
           })}
         </div>
