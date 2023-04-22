@@ -2,6 +2,13 @@
 Todo Web Application for a client. Where the client is able to store its daily Task and able to mark them as  -”done”, “pending”, “in progress”, “completed”
 
 <br>
+<h4 align="left">
+  Frontend Deployed on Netlify &#160; <img src="https://media.giphy.com/media/FbUuPsOW3oOCdAHexF/giphy.gif" width="50"> &#160; https://what2dobro.netlify.app/
+</h4>
+<h4 align="left">
+  Backend Deployed on Vercel &#160; <img src="https://media.giphy.com/media/FbUuPsOW3oOCdAHexF/giphy.gif" width="50"> &#160; https://what-to-do-bro.vercel.app
+</h4>
+<br>
 
 ## How To Run This
 
@@ -33,7 +40,11 @@ npm run dev
 
 <br><br>
 
-## Technologies used are :-
+## Created using 
+
+`HTML`, `SCSS`, `JAVASCRIPT`, `NODE.JS`, `REACT`, `VITE`, `EXPRESS`, `MONGODB`
+
+## Technologies will be used :-
 
 ReactJS/ Redux(Frontend)
 Nodejs, Express and Sequelize for backend API (In MVC pattern)
