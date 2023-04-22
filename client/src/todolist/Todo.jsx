@@ -38,6 +38,7 @@ export default function Todo() {
       .post("https://what-to-do-bro.vercel.app/create", newTask)
       .then((res) => {
         console.log(res.data);
+        event.target.reset();
       })
       .catch((err) => {
         alert(err.message);
@@ -81,6 +82,7 @@ export default function Todo() {
       .post("https://what-to-do-bro.vercel.app/create", newTask)
       .then((res) => {
         console.log(res.data);
+        event.target.reset();
       })
       .catch((err) => {
         alert(err.message);
@@ -88,21 +90,71 @@ export default function Todo() {
       });
   }
 
+  function deletePending(key) {
+    console.log(key);
+
+    let removeTask = {
+      category: "pending",
+      key: key,
+    };
+
+    axios
+      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .then((res) => {
+        axios
+          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            alert(err.message);
+            console.log(err);
+          });
+      });
+  }
   function deleteProgress(key) {
     console.log(key);
 
     let removeTask = {
       category: "progress",
-      key: "0",
+      key: key,
     };
+
     axios
-      .delete(
-        "http://localhost:5000/delete/64426dd2ec247b64ed058aaa",
-        removeTask
-      )
-      .then(() => {
-        console.log("delete");
-      })
+      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .then((res) => {
+        axios
+          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            alert(err.message);
+            console.log(err);
+          });
+      });
+  }
+  function deleteCompleted(key) {
+    console.log(key);
+
+    let removeTask = {
+      category: "completed",
+      key: key,
+    };
+
+    axios
+      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .then((res) => {
+        axios
+          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            alert(err.message);
+            console.log(err);
+          });
+      });
   }
 
   if (data) {
@@ -141,7 +193,7 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
-                  <div className="crossButton">
+                  <div className="crossButton" onClick={() => deletePending(i)}>
                     <IonIcon icon={close} />
                   </div>
                 </div>
@@ -236,7 +288,10 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
-                  <div className="crossButton">
+                  <div
+                    className="crossButton"
+                    onClick={() => deleteCompleted(i)}
+                  >
                     <IonIcon icon={close} />
                   </div>
                 </div>
