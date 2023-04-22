@@ -59,6 +59,7 @@ export default function Todo() {
       .post("http://localhost:5000/create", newTask)
       .then((res) => {
         console.log(res.data);
+        event.target.reset()
       })
       .catch((err) => {
         alert(err.message);
@@ -93,7 +94,7 @@ export default function Todo() {
         <div className="taskCard taskCard__secondary">
           <h1>Pending</h1>
 
-          {/* Add Task */}
+          {/* Add Task Button */}
           <div className="addTask addTask__secondary">
             <form method="post" onSubmit={addPendingTask}>
               <div id="pending">
@@ -135,11 +136,10 @@ export default function Todo() {
             );
           })}
         </div>
-
         <div className="taskCard taskCard__secondary">
           <h1>Progress</h1>
 
-          {/* Add Task */}
+          {/* Tasks */}
           <div className="addTask addTask__secondary">
             <form method="post" onSubmit={addProgressTask}>
               <div id="progress">
@@ -216,9 +216,9 @@ export default function Todo() {
               <>
                 <div key={i} className="taskItem taskItem__secondary">
                   <div className="cross">
-                  <div className="crossButton">
-                    <IonIcon icon={close} />
-                  </div>
+                    <div className="crossButton">
+                      <IonIcon icon={close} />
+                    </div>
                   </div>
                   <div className="text">
                     <h2>{element.title}</h2>
