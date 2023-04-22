@@ -15,15 +15,17 @@ $shadow: .3rem .3rem .6rem var(--greyLight-2),
     -.2rem -.2rem .5rem var(--white);
 $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
     inset -.2rem -.2rem .5rem var(--white);
+$ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
+    -.2rem -.2rem 1.8rem var(--white);
 
 
 .task_components {
     width: 75rem;
     height: fit-content;
+    min-height: 40rem;
     margin-bottom: 2rem;
     border-radius: 3rem;
-    box-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
-        -.2rem -.2rem 1.8rem var(--white);
+    box-shadow: $ultimate-shadow;
     padding: 4rem;
     display: grid;
     align-items: start;
@@ -96,11 +98,12 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
 .addTask {
     justify-self: center;
     width: 18rem;
-    height: fit-content;
+    height: 100%;
     min-height: 3.5rem;
+    border: solid;
     // padding: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
     box-shadow: $shadow;
     display: flex;
     flex-direction: column;
@@ -129,15 +132,13 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
         }
 
         &:hover {
-            & h2 {
-                color: #9286fd;
-            }
-
-            & p {
-                color: #9baacf;
-            }
-
+            box-shadow: $shadow;
             transform: translateY(-3px);
+        }
+
+        &:active {
+            transform: translateY(.5px);
+            box-shadow: $inner-shadow;
         }
     }
 
@@ -167,75 +168,104 @@ form {
 
         & .inputs1 {
             width: 100%;
-            height: 100%;
+            height: auto;
             resize: none;
             border-top-left-radius: 10px;
-            padding: 1px;
+            padding: 5px;
             background: var(--greyLight-1);
             border: none;
             border-bottom: var(--greyLight-2) 1px solid;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: var(--primary-light);
+            }
+
+            &:focus {
+                outline: none;
+                // background: #ffffff;
+            }
         }
-        
+
         & .inputs2 {
             width: 100%;
-            height: 100%;
+            height: auto;
             resize: none;
             border-bottom-left-radius: 10px;
-            padding: 1px;
+            padding: 5px;
             background: var(--greyLight-1);
             border: none;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: var(--primary-light);
+            }
+
+            &:focus {
+                outline: none;
+                // background: #ffffff;
+            }
         }
     }
 
     & button {
         padding: 1px;
-        width: 20%;
-        height: 7rem;
-        min-height: 8.15rem;
-        // border: none;
+        width: 21%;
+        // height: 9.7rem;
+        min-height: 100px;
+        border: none;
         font-size: 2rem;
         font-weight: bold;
         border-bottom-right-radius: 10px;
         border-top-right-radius: 10px;
         background: #c8d0e7;
+        box-shadow: -5px 0 5px rgba(255, 255, 255, 0.443);
         transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+        &:hover {
+            // box-shadow: $shadow;
+            background: #dfdbff;
+            transform: translateY(-.5px);
+        }
+
+        &:active {
+            color: var(--primary);
+            transform: translateY(.5px);
+            // box-shadow: $inner-shadow;
+        }
     }
 
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
-    &:hover {
-        div {
-            box-shadow: $shadow;
-        }
-
-        button {
-            box-shadow: $shadow;
-            background: #dfdbff;
-            transform: translateY(-.5px);
-        }
-    }
-
-    & button:active {
-        color: var(--primary);
-        transform: translateY(.5px);
-        box-shadow: $inner-shadow;
-    }
 }
 
 
 .taskItem {
-    justify-self: center;
     width: 18rem;
     height: fit-content;
     min-height: 3.5rem;
-    padding: 1rem;
-    margin-bottom: 1.2rem;
     border-radius: 1rem;
-    box-shadow: $shadow;
+    // padding-bottom: 1rem;
+    // padding-left: 1rem;
+    // padding-right: 1rem;
+    margin-bottom: 2rem;
+
+    justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    // align-items: center;
+    justify-content: flex-start;
+
+    box-shadow: $shadow;
     user-select: none;
     cursor: pointer;
     transition: .3s ease;
@@ -243,18 +273,66 @@ form {
     &__secondary {
         color: var(--greyDark);
 
-        & h2 {
+        /*  ICONS  */
+        & .cross {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            // position: absolute;
             width: 100%;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            // height: 5rem;
+            // border: solid 1px;
+            
+            & .crossButton {
+                width: 2.1rem;
+                height: 2.1rem;
+                background: #E4EBF5;
+                border-radius: 50%;
+                box-shadow: $shadow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+                cursor: pointer;
+                color: rgb(236, 187, 187);
+                transition: all .5s ease;
+
+                &:hover {
+                    color: red;
+                }
+
+                &:active {
+                    box-shadow: $inner-shadow;
+                    color: rgb(176, 0, 0);
+                }
+            }
+
+
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
         }
 
-        & p {
-            font-size: 1.3rem;
-            text-align: justify;
-            font-size: 1rem;
-            color: var(--greyDark-2);
+        & .text {
+            padding: 1rem;
+            // border: solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            
+            & h2 {
+                // margin-top: 5px;
+                width: 100%;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+
+            & p {
+                font-size: 1.3rem;
+                text-align: justify;
+                font-size: 1rem;
+                color: var(--greyDark-2);
+            }
         }
 
         &:hover {
@@ -268,7 +346,9 @@ form {
 
             transform: translateY(-3px);
         }
+
     }
+
 
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 }

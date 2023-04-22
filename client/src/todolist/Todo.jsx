@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Todo.scss";
+import { IonIcon } from "@ionic/react";
+import { close } from "ionicons/icons";
 import axios from "axios";
 
 export default function Todo() {
   const [data, setData] = useState(null);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
+  // Fetching Data
   useEffect(() => {
     axios
       .get("http://localhost:5000/read/64426dd2ec247b64ed058aaa")
@@ -18,13 +23,14 @@ export default function Todo() {
       });
   }, [data]);
 
+  // Updating Data
   function addPendingTask(event) {
     event.preventDefault();
 
     let newTask = {
       category: "pending",
-      title: "Todo project",
-      content: "Trying to create",
+      title: title,
+      content: content,
       userid: "64426dd2ec247b64ed058aaa",
     };
 
@@ -33,19 +39,19 @@ export default function Todo() {
       .then((res) => {
         console.log(res.data);
       })
-
       .catch((err) => {
         alert(err.message);
         console.log(err);
       });
   }
+
   function addProgressTask(event) {
     event.preventDefault();
 
     let newTask = {
       category: "progress",
-      title: "Todo project",
-      content: "Trying to create",
+      title: title,
+      content: content,
       userid: "64426dd2ec247b64ed058aaa",
     };
 
@@ -54,19 +60,19 @@ export default function Todo() {
       .then((res) => {
         console.log(res.data);
       })
-
       .catch((err) => {
         alert(err.message);
         console.log(err);
       });
   }
+
   function addCompletedTask(event) {
     event.preventDefault();
 
     let newTask = {
       category: "completed",
-      title: "Todo project",
-      content: "Trying to create",
+      title: title,
+      content: content,
       userid: "64426dd2ec247b64ed058aaa",
     };
 
@@ -75,7 +81,6 @@ export default function Todo() {
       .then((res) => {
         console.log(res.data);
       })
-
       .catch((err) => {
         alert(err.message);
         console.log(err);
@@ -85,29 +90,31 @@ export default function Todo() {
   if (data) {
     return (
       <div className="task_components">
-        <div className="taskCard taskCard__secondary" id="pending">
+        <div className="taskCard taskCard__secondary">
           <h1>Pending</h1>
 
           {/* Add Task */}
           <div className="addTask addTask__secondary">
-            <form onSubmit={addPendingTask}>
-              <div>
-              <textarea
+            <form method="post" onSubmit={addPendingTask}>
+              <div id="pending">
+                <textarea
                   rows="2"
-                  type="textarea"
+                  type="submit"
                   className="inputs1"
                   placeholder=" Title"
                   required
+                  onChange={(event) => setTitle(event.target.value)}
                 ></textarea>
                 <textarea
                   rows="3"
-                  type="textarea"
+                  type="submit"
                   className="inputs2"
                   placeholder=" Description"
                   required
+                  onChange={(event) => setContent(event.target.value)}
                 ></textarea>
               </div>
-              <button>+</button>
+              <button type="submit">+</button>
             </form>
           </div>
 
@@ -115,36 +122,45 @@ export default function Todo() {
           {data[0].map((element, i) => {
             return (
               <div key={i} className="taskItem taskItem__secondary">
-                <h2>{element.title}</h2>
-                <p>{element.content}</p>
+                <div className="cross">
+                  <div className="crossButton">
+                    <IonIcon icon={close} />
+                  </div>
+                </div>
+                <div className="text">
+                  <h2>{element.title}</h2>
+                  <p>{element.content}</p>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="taskCard taskCard__secondary" id="progress">
+        <div className="taskCard taskCard__secondary">
           <h1>Progress</h1>
 
           {/* Add Task */}
           <div className="addTask addTask__secondary">
-            <form onSubmit={addProgressTask}>
-              <div>
+            <form method="post" onSubmit={addProgressTask}>
+              <div id="progress">
                 <textarea
                   rows="2"
-                  type="textarea"
+                  type="submit"
                   className="inputs1"
                   placeholder=" Title"
                   required
+                  onChange={(event) => setTitle(event.target.value)}
                 ></textarea>
                 <textarea
                   rows="3"
-                  type="textarea"
+                  type="submit"
                   className="inputs2"
                   placeholder=" Description"
                   required
+                  onChange={(event) => setContent(event.target.value)}
                 ></textarea>
               </div>
-              <button>+</button>
+              <button type="submit">+</button>
             </form>
           </div>
 
@@ -152,46 +168,64 @@ export default function Todo() {
           {data[1].map((element, i) => {
             return (
               <div key={i} className="taskItem taskItem__secondary">
-                <h2>{element.title}</h2>
-                <p>{element.content}</p>
+                <div className="cross">
+                  <div className="crossButton">
+                    <IonIcon icon={close} />
+                  </div>
+                </div>
+                <div className="text">
+                  <h2>{element.title}</h2>
+                  <p>{element.content}</p>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="taskCard taskCard__secondary" id="completed">
+        <div className="taskCard taskCard__secondary">
           <h1>Completed</h1>
 
           {/* Add Task */}
           <div className="addTask addTask__secondary">
-            <form onSubmit={addCompletedTask}>
-              <div>
-              <textarea
+            <form method="post" onSubmit={addCompletedTask}>
+              <div id="completed">
+                <textarea
                   rows="2"
-                  type="textarea"
+                  type="submit"
                   className="inputs1"
                   placeholder=" Title"
                   required
+                  onChange={(event) => setTitle(event.target.value)}
                 ></textarea>
                 <textarea
                   rows="3"
-                  type="textarea"
+                  type="submit"
                   className="inputs2"
                   placeholder=" Description"
                   required
+                  onChange={(event) => setContent(event.target.value)}
                 ></textarea>
               </div>
-              <button>+</button>
+              <button type="submit">+</button>
             </form>
           </div>
 
           {/* Tasks */}
           {data[2].map((element, i) => {
             return (
-              <div key={i} className="taskItem taskItem__secondary">
-                <h2>{element.title}</h2>
-                <p>{element.content}</p>
-              </div>
+              <>
+                <div key={i} className="taskItem taskItem__secondary">
+                  <div className="cross">
+                  <div className="crossButton">
+                    <IonIcon icon={close} />
+                  </div>
+                  </div>
+                  <div className="text">
+                    <h2>{element.title}</h2>
+                    <p>{element.content}</p>
+                  </div>
+                </div>
+              </>
             );
           })}
         </div>

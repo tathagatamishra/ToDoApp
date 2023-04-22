@@ -14,13 +14,15 @@ $shadow: .3rem .3rem .6rem var(--greyLight-2),
     -.2rem -.2rem .5rem var(--white);
 $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
     inset -.2rem -.2rem .5rem var(--white);
+$ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
+    -.2rem -.2rem 1.8rem var(--white);
 
 
 .navbar {
     width: 75rem;
     height: fit-content;
     border-radius: 3rem;
-    box-shadow: $shadow;
+    box-shadow: $ultimate-shadow;
     // box-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     //     -.2rem -.2rem 1.8rem var(--white);
     padding: 1rem;
@@ -59,6 +61,7 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
             color: var(--primary);
         }
     }
+
     &__title {
         width: 30rem;
         height: 4rem;
@@ -83,6 +86,7 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
             color: var(--greyDark);
         }
     }
+
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
 }
