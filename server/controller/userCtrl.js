@@ -24,7 +24,9 @@ exports.login = async (req, res) => {
   try {
     const data = req.body;
 
-    if (await userModel.find(data)) {
+    const { email, password} = data
+
+    if (await userModel.findOne({email, password})) {
       return res
         .status(200)
         .send({ status: true, message: "Your logged in successfully 😃" });

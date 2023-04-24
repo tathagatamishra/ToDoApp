@@ -2,7 +2,7 @@
   --primary-light: #8abdff;
   --primary: #6d5dfc;
   --primary-dark: #5b0eeb;
-  
+
   --white: #FFFFFF;
   --greyLight-1: #E4EBF5;
   --greyLight-2: #c8d0e7;
@@ -29,9 +29,20 @@ html {
   font-size: 62.5%; // 1rem = 10px    100% = 16px
   overflow-y: scroll;
   background: var(--greyLight-1);
+  overflow-x: scroll;
 
   @media screen and (min-width: 900px) {
     font-size: 75%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
   }
 }
 
@@ -45,4 +56,3 @@ html {
   font-family: 'Poppins', sans-serif;
   background: var(--greyLight-1);
 }
-

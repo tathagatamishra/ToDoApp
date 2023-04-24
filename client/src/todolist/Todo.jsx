@@ -9,8 +9,8 @@ export default function Todo() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  // const BASE_URL = "http://localhost:5000"
-  const BASE_URL = "https://what-to-do-bro.vercel.app"
+  const BASE_URL = "http://localhost:5000"
+  // const BASE_URL = "https://what-to-do-bro.vercel.app"
 
   // Fetching Data
   useEffect(() => {
@@ -167,7 +167,7 @@ export default function Todo() {
               <div id="pending">
                 <textarea
                   rows="2"
-                  type="submit"
+                  type="textarea"
                   className="inputs1"
                   placeholder=" Title"
                   required
@@ -175,7 +175,7 @@ export default function Todo() {
                 ></textarea>
                 <textarea
                   rows="3"
-                  type="submit"
+                  type="textarea"
                   className="inputs2"
                   placeholder=" Description"
                   required
