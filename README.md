@@ -1,4 +1,6 @@
-# ToDo
+<p align="center"> <img src="https://media.giphy.com/media/h7dhQrvBNvEHcbk82k/giphy.gif" height="100"> </p>
+
+# ToDo List
 Todo Web Application for a client. Where the client is able to store its daily Task and able to mark them as  -”done”, “pending”, “in progress”, “completed”
 
 <br>
@@ -38,11 +40,14 @@ npm run dev
 
 ```
 
-<br><br>
+<br>
 
 ## Created using 
 
 `HTML`, `SCSS`, `JAVASCRIPT`, `NODE.JS`, `REACT`, `VITE`, `EXPRESS`, `MONGODB`
+
+---
+![todoapp](https://user-images.githubusercontent.com/114053180/233909530-897d797a-27db-42cf-a3c4-c02ab7df390a.png)
 
 ## Technologies will be used :-
 
@@ -53,6 +58,7 @@ UUID for generating unique ID
 MySQL for Database management
  
 <br>
+
 
 ## Functionalities implemented:
 
