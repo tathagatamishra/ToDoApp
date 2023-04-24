@@ -9,10 +9,13 @@ export default function Todo() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  // const BASE_URL = "http://localhost:5000"
+  const BASE_URL = "https://what-to-do-bro.vercel.app"
+
   // Fetching Data
   useEffect(() => {
     axios
-      .get("http://localhost:5000/read/64426dd2ec247b64ed058aaa")
+      .get(`${BASE_URL}/read/64426dd2ec247b64ed058aaa`)
       .then((response) => {
         let allTask = response.data.data;
 
@@ -35,7 +38,7 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post(`${BASE_URL}/create`, newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -57,7 +60,7 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post(`${BASE_URL}/create`, newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -79,7 +82,7 @@ export default function Todo() {
     };
 
     axios
-      .post("http://localhost:5000/create", newTask)
+      .post(`${BASE_URL}/create`, newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -99,7 +102,7 @@ export default function Todo() {
 
     axios
       .delete(
-        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+        `${BASE_URL}/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
       )
       .then((res) => {
         console.log(res.data);
@@ -120,7 +123,7 @@ export default function Todo() {
 
     axios
       .delete(
-        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+        `${BASE_URL}/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
       )
       .then((res) => {
         console.log(res.data);
@@ -141,7 +144,7 @@ export default function Todo() {
 
     axios
       .delete(
-        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+        `${BASE_URL}/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
       )
       .then((res) => {
         console.log(res.data);
