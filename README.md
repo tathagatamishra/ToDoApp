@@ -47,7 +47,10 @@ npm run dev
 `HTML`, `SCSS`, `JAVASCRIPT`, `NODE.JS`, `REACT`, `VITE`, `EXPRESS`, `MONGODB`
 
 ---
-![todoapp](https://user-images.githubusercontent.com/114053180/233909530-897d797a-27db-42cf-a3c4-c02ab7df390a.png)
+
+| | |
+| :--: | :--: |
+| ![ToDoAppIdea](https://user-images.githubusercontent.com/114053180/233916916-2d146281-1cf3-4de6-b731-eb3187720f59.jpg) | [![todoapp](https://user-images.githubusercontent.com/114053180/233909530-897d797a-27db-42cf-a3c4-c02ab7df390a.png)](https://what2dobro.netlify.app/) 
 
 ## Technologies will be used :-
 
