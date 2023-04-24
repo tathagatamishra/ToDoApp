@@ -12,7 +12,7 @@ export default function Todo() {
   // Fetching Data
   useEffect(() => {
     axios
-      .get("https://what-to-do-bro.vercel.app/read/64426dd2ec247b64ed058aaa")
+      .get("http://localhost:5000/read/64426dd2ec247b64ed058aaa")
       .then((response) => {
         let allTask = response.data.data;
 
@@ -23,7 +23,7 @@ export default function Todo() {
       });
   }, [data]);
 
-  // Updating Data
+  // Creating Data
   function addPendingTask(event) {
     event.preventDefault();
 
@@ -35,7 +35,7 @@ export default function Todo() {
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/create", newTask)
+      .post("http://localhost:5000/create", newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -57,7 +57,7 @@ export default function Todo() {
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/create", newTask)
+      .post("http://localhost:5000/create", newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -79,7 +79,7 @@ export default function Todo() {
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/create", newTask)
+      .post("http://localhost:5000/create", newTask)
       .then((res) => {
         console.log(res.data);
         event.target.reset();
@@ -91,25 +91,22 @@ export default function Todo() {
   }
 
   function deletePending(key) {
-    console.log(key);
-
     let removeTask = {
       category: "pending",
       key: key,
+      userid: "64426dd2ec247b64ed058aaa",
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .delete(
+        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+      )
       .then((res) => {
-        axios
-          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            alert(err.message);
-            console.log(err);
-          });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+        console.log(err);
       });
   }
   function deleteProgress(key) {
@@ -118,20 +115,19 @@ export default function Todo() {
     let removeTask = {
       category: "progress",
       key: key,
+      userid: "64426dd2ec247b64ed058aaa",
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .delete(
+        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+      )
       .then((res) => {
-        axios
-          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            alert(err.message);
-            console.log(err);
-          });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+        console.log(err);
       });
   }
   function deleteCompleted(key) {
@@ -140,20 +136,19 @@ export default function Todo() {
     let removeTask = {
       category: "completed",
       key: key,
+      userid: "64426dd2ec247b64ed058aaa",
     };
 
     axios
-      .post("https://what-to-do-bro.vercel.app/search/64426dd2ec247b64ed058aaa", removeTask)
+      .delete(
+        `http://localhost:5000/delete/${removeTask.category}/${removeTask.key}/${removeTask.userid}`
+      )
       .then((res) => {
-        axios
-          .delete(`https://what-to-do-bro.vercel.app/delete/${res.data.data}`)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            alert(err.message);
-            console.log(err);
-          });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+        console.log(err);
       });
   }
 

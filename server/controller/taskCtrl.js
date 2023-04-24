@@ -109,68 +109,34 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
   try {
-    const id = req.params.id;
+    const paramData = req.params;
 
-    let pendingData = await pendingModel.find({ _id: id });
-    let progressData = await progressModel.find({ _id: id });
-    let completedData = await completedModel.find({ _id: id });
+    const { category, key, userid } = paramData;
 
-    if (pendingData) {
-      await pendingModel.deleteOne({ _id: id });
+    if (category == "pending") {
+      let taskData = await pendingModel.find({ userid: userid });
+      let taskId = taskData[key]._id;
+      await pendingModel.deleteOne({ _id: taskId });
     }
-    if (progressData) {
-      await progressModel.deleteOne({ _id: id });
+    if (category == "progress") {
+      let taskData = await progressModel.find({ userid: userid });
+
+      let taskId = taskData[key]._id;
+
+      await progressModel.deleteOne({ _id: taskId });
     }
-    if (completedData) {
-      await completedModel.deleteOne({ _id: id });
+    if (category == "completed") {
+      let taskData = await completedModel.find({ userid: userid });
+
+      let taskId = taskData[key]._id;
+
+      await completedModel.deleteOne({ _id: taskId });
     }
 
     return res.status(200).send({
       status: true,
       message: "Deleted",
     });
-  } catch (err) {
-    res.status(500).send({
-      status: false,
-      message: "Internal Server Error!",
-      error: err.message,
-    });
-  }
-};
-
-exports.search = async (req, res) => {
-  try {
-    const userId = req.params.id;
-
-    const { category, key } = req.body;
-
-    if (category == "pending") {
-      let taskData = await pendingModel.find({ userid: userId });
-      let taskId = taskData[key]._id;
-
-      return res.status(200).send({
-        status: true,
-        data: taskId,
-      });
-    }
-    if (category == "progress") {
-      let taskData = await progressModel.find({ userid: userId });
-      let taskId = taskData[key]._id;
-
-      return res.status(200).send({
-        status: true,
-        data: taskId,
-      });
-    }
-    if (category == "completed") {
-      let taskData = await completedModel.find({ userid: userId });
-      let taskId = taskData[key]._id;
-
-      return res.status(200).send({
-        status: true,
-        data: taskId,
-      });
-    }
   } catch (err) {
     res.status(500).send({
       status: false,
