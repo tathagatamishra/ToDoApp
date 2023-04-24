@@ -9,8 +9,8 @@ export default function Todo() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const BASE_URL = "http://localhost:5000"
-  // const BASE_URL = "https://what-to-do-bro.vercel.app"
+  // const BASE_URL = "http://localhost:5000"
+  const BASE_URL = "https://what-to-do-bro.vercel.app"
 
   // Fetching Data
   useEffect(() => {

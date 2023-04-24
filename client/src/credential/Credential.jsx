@@ -10,8 +10,8 @@ export default function Credential(props) {
 
   const [isLogIn, setIsLogIn] = useState(props.value);
 
-  const BASE_URL = "http://localhost:5000";
-  // const BASE_URL = "https://what-to-do-bro.vercel.app"
+  // const BASE_URL = "http://localhost:5000";
+  const BASE_URL = "https://what-to-do-bro.vercel.app"
 
   function showOnClick(show) {
     if (show == 1) {
