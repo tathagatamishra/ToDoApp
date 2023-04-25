@@ -108,7 +108,6 @@ export default function Todo() {
         console.log(res.data);
       })
       .catch((err) => {
-        alert(err.message);
         console.log(err);
       });
   }

@@ -15,6 +15,7 @@ root.render(
   <div className="container">
     <BrowserRouter>
         <Navbar />
+      {/* <Credential /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
