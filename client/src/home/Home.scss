@@ -40,23 +40,20 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
     & .hero {
         width: 100%;
-        padding-right: 16rem;
         margin-bottom: 4rem;
-
+        
         & h1 {
+            height: fit-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 2rem;
             font-size: 4rem;
             color: var(--greyDark-2);
             animation-name: text-anim;
             animation-duration: 4s;
             transform: translateY(0px);
-
-            // font-family: 'Alegreya Sans SC', sans-serif;
-            // font-family: 'Lexend', sans-serif;
             font-family: 'Sen', sans-serif;
-            // font-family: 'Viga', sans-serif;
-            // font-family: 'Secular One', sans-serif;
-            // font-family: 'Staatliches', cursive;
 
             // @keyframes text-anim {
             //     to {
@@ -66,12 +63,29 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
             //     from {
             //         color: rgba(255, 255, 0, 0);
-            //         transform: translateY(-50px);
+            //         transform: translateY(-10px);
             //     }
             // }
         }
 
+        & .git {
+            text-decoration: none;
+            color: #737d97;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            
+            &:hover {
+                color: #9baacf;
+                transform: translateY(-1px);
+            }
+            
+            &:active {
+                color: #9286fd;
+                transform: translateY(0);
+            }
+        }
+
         & p {
+            padding-right: 16rem;
             font-size: 1.5rem;
             color: #919cb8;
             font-family: 'Sen', sans-serif;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import { IonIcon } from "@ionic/react";
-import { close } from "ionicons/icons";
+import { close, logoGithub } from "ionicons/icons";
 import { NavLink } from "react-router-dom";
 
 export default function Todo() {
@@ -38,7 +38,15 @@ export default function Todo() {
   return (
     <div className="homeBody">
       <div className="hero">
-        <h1>WELCOME 2 TO DO</h1>
+        <h1>
+          WELCOME 2 TO DO{" "}
+          <NavLink
+            to="https://github.com/tathagatamishra/ToDoApp"
+            className="git"
+          >
+            <IonIcon icon={logoGithub} />
+          </NavLink>
+        </h1>
         <p>
           With a stroke of your keyboard or a gentle tap of your finger,
           effortlessly manifest your dreams into tasks. Immerse yourself in the
