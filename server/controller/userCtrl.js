@@ -34,10 +34,12 @@ exports.login = async (req, res) => {
 
     const { email, password } = data;
 
-    if (await userModel.findOne({ email, password })) {
+    let userData = await userModel.findOne({ email, password })
+
+    if (userData) {
       return res
         .status(200)
-        .send({ status: true, message: "Your logged in successfully 😃" });
+        .send({ status: true, message: "Your logged in successfully 😃", data: userData._id });
     }
 
     return res
@@ -56,12 +58,19 @@ exports.profile = async (req, res) => {
   try {
     const id = req.params.id;
 
-    let userData = await userModel.findOne({ _id: id });
+    let userData = await userModel.findById(id);
 
-    res.status(200).send({
-      status: true,
-      data: userData,
+    if(userData) {
+      return res.status(200).send({
+        status: true,
+        data: userData,
+      });
+    }
+    return res.status(200).send({
+      status: false,
+      message: "Data not found"
     });
+    
   } catch (err) {
     res.status(500).send({
       status: false,
@@ -70,6 +79,7 @@ exports.profile = async (req, res) => {
     });
   }
 };
+
 exports.edit = async (req, res) => {
   try {
     const id = req.params.id;

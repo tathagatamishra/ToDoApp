@@ -6,6 +6,7 @@ import axios from "axios";
 
 export default function Todo() {
   const [data, setData] = useState(null);
+  const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -14,11 +15,13 @@ export default function Todo() {
 
   // Fetching Data
   useEffect(() => {
+    let id = localStorage.getItem("user-id");
+    setId(id)
+
     axios
-      .get(`${BASE_URL}/read/64426dd2ec247b64ed058aaa`)
+      .get(`${BASE_URL}/read/${id}`)
       .then((response) => {
         let allTask = response.data.data;
-
         setData(allTask);
       })
       .catch((error) => {
@@ -34,7 +37,7 @@ export default function Todo() {
       category: "pending",
       title: title,
       content: content,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios
@@ -56,7 +59,7 @@ export default function Todo() {
       category: "progress",
       title: title,
       content: content,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios
@@ -78,7 +81,7 @@ export default function Todo() {
       category: "completed",
       title: title,
       content: content,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios
@@ -97,7 +100,7 @@ export default function Todo() {
     let removeTask = {
       category: "pending",
       key: key,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios
@@ -117,7 +120,7 @@ export default function Todo() {
     let removeTask = {
       category: "progress",
       key: key,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios
@@ -138,7 +141,7 @@ export default function Todo() {
     let removeTask = {
       category: "completed",
       key: key,
-      userid: "64426dd2ec247b64ed058aaa",
+      userid: id,
     };
 
     axios

@@ -1,31 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
 import { IonIcon } from "@ionic/react";
 import { home, person } from "ionicons/icons";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  function searchBlog() {
-    let searchKey = document.querySelector(".search__input").value;
-    console.log(searchKey);
+  const [id, setId] = useState(null);
+
+  function homeOnClick() {
+    document.querySelector("title").innerHTML = "All Blogs";
+  }
+  function profileOnClick() {
+    document.querySelector("title").innerHTML = "Profile";
   }
 
-  function profileClick() {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://blogity-blog.vercel.app/profile/64401a8cc494c7aeb0ebbe97"
-      );
-      const jsonData = await response.json();
-      console.log(jsonData.data);
-    };
-
-    fetchData();
-  }
+  setInterval(() => {
+    setId(localStorage.getItem("user-id"));
+  }, 1000);
 
   return (
     <div className="navbar">
       <div className="icon">
-        <NavLink to="/">
+        <NavLink to="/" onClick={homeOnClick}>
           <div className="icon__home">
             <IonIcon icon={home} />
           </div>
@@ -36,13 +32,23 @@ export default function Navbar() {
         <div className="icon__title">T O - D O</div>
       </div>
 
-      <div className="icon" onClick={profileClick}>
-        <NavLink to="/profile">
-          <div className="icon__account">
-            <IonIcon icon={person} />
+      {id == null ? (
+        <NavLink to="/account" onClick={profileOnClick}>
+          <div className="icon">
+            <div className="icon__account">
+              <IonIcon icon={person} />
+            </div>
           </div>
         </NavLink>
-      </div>
+      ) : (
+        <NavLink to="/profile" onClick={profileOnClick}>
+          <div className="icon">
+            <div className="icon__account">
+              <IonIcon icon={person} />
+            </div>
+          </div>
+        </NavLink>
+      )}
     </div>
   );
 }

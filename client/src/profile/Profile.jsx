@@ -1,39 +1,68 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { IonIcon } from "@ionic/react";
+import { add, close, logOutOutline, createOutline } from "ionicons/icons";
+import Todo from "../todolist/Todo";
 
 export default function Profile() {
   const [data, setData] = useState(null);
 
+  const [id, setId] = useState(null);
+
+  const navigate = useNavigate();
+
   // const BASE_URL = "http://localhost:5000";
-  const BASE_URL = "https://what-to-do-bro.vercel.app"
+  const BASE_URL = "https://what-to-do-bro.vercel.app";
 
   useEffect(() => {
+    let id = localStorage.getItem("user-id");
+    setId(id);
+
     axios
-      .get(`${BASE_URL}/profile/64427a46a6576ffdd726b6c1`)
+      .get(`${BASE_URL}/profile/${id}`)
       .then((res) => {
-        setData(res.data.data)
+        setData(res.data.data);
       })
       .catch((err) => {
-        alert(err.message);
         console.log(err);
       });
-      
-    }, [data]);
-    
-    
-    if (data) {
-    console.log(data);
+  }, []);
+
+  function edit() {}
+
+  function logOut() {
+    localStorage.removeItem("user-id");
+
+    navigate("/");
+  }
+
+  if(data) 
     return (
-      <div className="components">
-        <div className="card card__secondary">
-          <h1>Profile</h1>
-          <div className="item item__secondary">
-            <h2>{data.name}</h2>
-            <p>{data.email}</p>
+      <div className="proComponent">
+        <div className="componentHeader">
+          <h2 className="proHeading">Profile</h2>
+          <div className="empty"></div>
+          {/* <div className="edit" onClick={edit}>
+            <IonIcon icon={createOutline} />
+          </div> */}
+          <div className="logOut" onClick={logOut}>
+            <IonIcon icon={logOutOutline} />
           </div>
         </div>
+
+        <div className="profile profile__secondary">
+          <h2>
+            <b>Name</b> {data.name}
+          </h2>
+          <h3>
+            <b>Email</b> {data.email}
+          </h3>
+        </div>
+          <Todo />
       </div>
     );
-  }
+  
 }

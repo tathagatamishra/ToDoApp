@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Credential.scss";
 import axios from "axios";
 import { IonIcon } from "@ionic/react";
@@ -26,19 +27,29 @@ export default function Credential() {
     marginTop: "5px",
     userSelect: "none",
   });
+  const warningStyle = {
+    marginTop: "10px",
+    display: "none",
+    userSelect: "none",
+  };
 
-  const BASE_URL = "http://localhost:5000";
-  // const BASE_URL = "https://what-to-do-bro.vercel.app";
+  // const BASE_URL = "http://localhost:5000";
+  const BASE_URL = "https://what-to-do-bro.vercel.app";
 
+  let navigate = useNavigate();
+
+  // showing
   function showOnClick(show) {
     if (show == 1) {
       document.querySelector("title").innerHTML = "Log in";
       setShowSign(false);
       setShowLog(true);
+      setWarning(warningStyle);
     } else {
       document.querySelector("title").innerHTML = "Sign up";
       setShowLog(false);
       setShowSign(true);
+      setWarning(warningStyle);
     }
   }
 
@@ -50,18 +61,15 @@ export default function Credential() {
       password: event.target[1].value,
     };
 
-    // console.log(credential);
-
     axios
       .post(`${BASE_URL}/login`, credential)
       .then((res) => {
-        console.log(res.data);
         if (res.data.status) {
-          setWarning({
-            marginTop: "10px",
-            display: "none",
-            userSelect: "none",
-          });
+          event.target.reset();
+          setWarning(warningStyle);
+          
+          localStorage.setItem("user-id", res.data.data);
+          navigate(`/profile`);
         } else {
           setWarning({
             marginTop: "10px",
@@ -74,6 +82,7 @@ export default function Credential() {
         console.log(err.message);
       });
   }
+
   function signUp(event) {
     event.preventDefault();
 
@@ -88,7 +97,19 @@ export default function Credential() {
     axios
       .post(`${BASE_URL}/signup`, credential)
       .then((res) => {
-        console.log(res.data);
+        if (res.data.status) {
+          event.target.reset();
+          setWarning(warningStyle);
+
+          // after signUp opening logIn form by passing argument 1 in showOnClick
+          showOnClick(1);
+        } else {
+          setWarning({
+            marginTop: "10px",
+            userSelect: "none",
+            color: "red",
+          });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -97,35 +118,28 @@ export default function Credential() {
 
   // Show or hide password using inline css
   function showPassword() {
+    let show = {
+      position: "absolute",
+      marginRight: "10px",
+      marginTop: "5px",
+      userSelect: "none",
+    };
+
+    let hide = {
+      position: "absolute",
+      marginRight: "10px",
+      marginTop: "5px",
+      display: "none",
+      userSelect: "none",
+    };
+
     if (type == "password") {
-      setStyle1({
-        position: "absolute",
-        marginRight: "10px",
-        marginTop: "5px",
-        userSelect: "none",
-      });
-      setStyle2({
-        position: "absolute",
-        marginRight: "10px",
-        marginTop: "5px",
-        display: "none",
-        userSelect: "none",
-      });
+      setStyle1(show);
+      setStyle2(hide);
       setType("text");
     } else {
-      setStyle1({
-        position: "absolute",
-        marginRight: "10px",
-        marginTop: "5px",
-        display: "none",
-        userSelect: "none",
-      });
-      setStyle2({
-        position: "absolute",
-        marginRight: "10px",
-        marginTop: "5px",
-        userSelect: "none",
-      });
+      setStyle1(hide);
+      setStyle2(show);
       setType("password");
     }
   }
@@ -173,6 +187,7 @@ export default function Credential() {
             <input className="normalInput" type="text" required />
             <label htmlFor="">Email</label>
             <input className="normalInput" type="email" required />
+            <p style={warning}>⦿ This email already in use</p>
             <label htmlFor="">Password</label>
 
             <div className="password__eye">

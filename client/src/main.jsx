@@ -15,12 +15,12 @@ root.render(
   <div className="container">
     <BrowserRouter>
         <Navbar />
-      {/* <Credential /> */}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/todo" element={<Todo />} />
         <Route path="/account" element={<Credential />} />
+        <Route path="/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   </div>
