@@ -61,23 +61,19 @@ export default function Todo() {
         <div className="start">
           <p>Click here to transform your dreams into accomplishments</p>
           {id == null ? (
-            <NavLink
-              to="/account"
-              onClick={profileOnClick}
-              className="startBtn"
-            >
-              <div className="startBtn__add">
+            <div className="startBtn">
+              <NavLink to="/account" onClick={profileOnClick} className="add">
                 <div className="a"></div>
                 <div className="b"></div>
-              </div>
-            </NavLink>
+              </NavLink>
+            </div>
           ) : (
-            <NavLink to="/todo" onClick={profileOnClick} className="startBtn">
-              <div className="startBtn__add">
+            <div className="startBtn">
+              <NavLink to="/todo" onClick={profileOnClick} className="add">
                 <div className="a"></div>
                 <div className="b"></div>
-              </div>
-            </NavLink>
+              </NavLink>
+            </div>
           )}
           <p>
             Take a deep breath and imagine the possibilities. With our

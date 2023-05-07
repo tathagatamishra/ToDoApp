@@ -67,7 +67,7 @@ exports.read = async (req, res) => {
 
     let task = [pendingTask, progressTask, completedTask];
 
-    res.status(200).send({
+    return res.status(200).send({
       status: true,
       data: task,
     });
@@ -94,12 +94,12 @@ exports.update = async (req, res) => {
       { new: true }
     );
 
-    res.status(200).send({
+    return res.status(200).send({
       status: true,
       data: updatedData,
     });
   } catch (err) {
-    res.status(500).send({
+    return res.status(500).send({
       status: false,
       message: "Internal Server Error!",
       error: err.message,
@@ -138,7 +138,7 @@ exports.remove = async (req, res) => {
       message: "Deleted",
     });
   } catch (err) {
-    res.status(500).send({
+    return res.status(500).send({
       status: false,
       message: "Internal Server Error!",
       error: err.message,

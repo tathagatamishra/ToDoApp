@@ -26,14 +26,12 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
     align-items: center;
     border-radius: 20px;
     box-shadow: $ultimate-inner-shadow;
 
     font-size: 2rem;
     font-weight: bold;
-    cursor: pointer;
     color: var(--primary);
     transition: all .5s ease;
     user-select: none;
@@ -121,7 +119,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 padding-right: 25rem;
                 margin: 3rem;
 
-                &__add {
+                & .add {
                     font-weight: bolder;
                     width: 10rem;
                     height: 10rem;
