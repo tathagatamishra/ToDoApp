@@ -8,7 +8,7 @@ export default function Navbar() {
   const [id, setId] = useState(null);
 
   function homeOnClick() {
-    document.querySelector("title").innerHTML = "All Blogs";
+    document.querySelector("title").innerHTML = "Home";
   }
   function profileOnClick() {
     document.querySelector("title").innerHTML = "Profile";

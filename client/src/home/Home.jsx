@@ -8,13 +8,19 @@ export default function Todo() {
   const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [task, setTask] = useState([
+  const [task, setTask] = useState([]);
+
+  let demoTask = [
     { title: "What u need to do", content: "Just keep calm & eat 🍕" },
     {
       title: "And then ?",
       content: "After that just create another new task 😘",
     },
-  ]);
+  ];
+
+  useEffect(() => {
+    setTask(demoTask);
+  }, []);
 
   function profileOnClick() {
     document.querySelector("title").innerHTML = "Profile";
@@ -26,13 +32,11 @@ export default function Todo() {
 
   function addTask(event) {
     event.preventDefault();
-    let newTask = task;
-    newTask.push({ title: title, content: content });
-    setTask(newTask);
+    task.push({ title: title, content: content });
   }
 
   function deleteTask(key) {
-    setTask(task.splice(1, key));
+    setTask(demoTask.splice(key, 1));
   }
 
   return (
@@ -114,21 +118,25 @@ export default function Todo() {
             </div>
 
             {/* Tasks */}
-            {task.map((element, i) => {
-              return (
-                <div key={i} className="taskItem taskItem__secondary">
-                  <div className="cross">
-                    <div className="crossButton" onClick={() => deleteTask(i)}>
-                      <IonIcon icon={close} />
+            {task &&
+              task.map((element, i) => {
+                return (
+                  <div key={i} className="taskItem taskItem__secondary">
+                    <div className="cross">
+                      <div
+                        className="crossButton"
+                        onClick={() => deleteTask(i - 1)}
+                      >
+                        <IonIcon icon={close} />
+                      </div>
+                    </div>
+                    <div className="text">
+                      <h2>{element.title}</h2>
+                      <p>{element.content}</p>
                     </div>
                   </div>
-                  <div className="text">
-                    <h2>{element.title}</h2>
-                    <p>{element.content}</p>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </div>

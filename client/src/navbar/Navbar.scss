@@ -23,13 +23,24 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     height: fit-content;
     border-radius: 3rem;
     box-shadow: $ultimate-shadow;
-    // box-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
-    //     -.2rem -.2rem 1.8rem var(--white);
     padding: 1rem;
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+    @media screen and (max-width: 750px) {
+        width: 60rem;
+    }
+    @media screen and (max-width: 600px) {
+        width: 50rem;
+    }
+    @media screen and (max-width: 500px) {
+        width: 40rem;
+    }
+    @media screen and (max-width: 330px) {
+        width: 30rem;
+    }
 }
 
 
@@ -76,6 +87,13 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         color: var(--primary);
         transition: all .5s ease;
         user-select: none;
+
+        @media screen and (max-width: 500px) {
+            width: 20rem;
+        }
+        @media screen and (max-width: 330px) {
+            width: 15rem;
+        }
 
         // &:active {
         //     box-shadow: $inner-shadow;
