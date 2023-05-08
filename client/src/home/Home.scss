@@ -82,6 +82,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
             @media screen and (max-width: 500px) {
                 font-size: 2.8rem;
+                margin-bottom: 3rem;
             }
             @media screen and (max-width: 400px) {
                 font-size: 2.5rem;
@@ -150,8 +151,8 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
 
         @media screen and (max-width: 500px) {
-            padding-top: 4rem;
-            margin-top: 1rem;
+            padding-top: 0rem;
+            margin-top: 5rem;
             position: absolute;
             display: flex;
             flex-direction: column-reverse;
@@ -160,7 +161,8 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         }
         
         @media screen and (max-width: 400px) {
-            padding-top: 3rem;
+            padding-top: 0rem;
+            margin-top: 3rem;
             position: absolute;
             display: flex;
             flex-direction: column-reverse;
@@ -385,15 +387,18 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 @media screen and (max-width: 500px) {
                     width: 19rem;
                     padding-bottom: 1rem;
+                    margin-top: 1.6rem;
                 }
                 @media screen and (max-width: 400px) {
                     width: 18rem;
-                    padding-bottom: 2rem;
+                    padding-bottom: 1rem;
+                    margin-top: 3rem;
                 }
 
                 @media screen and (max-width: 330px) {
                     width: 14rem;
                     padding-bottom: 1rem;
+                    margin-top: 2.5rem;
                 }
 
                 &__secondary {
@@ -669,6 +674,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                 align-items: flex-start;
                                 width: 100%;
                                 height: .5rem;
+
+                                @media screen and (max-width: 500px) {
+                                    height: 0rem;
+                                }
 
                                 & .crossButton {
                                     width: 2.1rem;

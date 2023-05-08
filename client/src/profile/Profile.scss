@@ -39,6 +39,43 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: 750px) {
+        width: 65rem;
+        padding: 2rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 60rem;
+        padding: 2rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 45rem;
+        padding: 2rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+    }
+
+    @media screen and (max-width: 400px) {
+        width: 40rem;
+        padding: 2rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+    }
+
+    @media screen and (max-width: 330px) {
+        width: 30rem;
+        padding: 2rem;
+        padding-bottom: 0;
+        padding-top: 2rem;
+    }
+
+
+
 
     & .componentHeader {
         // border: solid;
@@ -62,6 +99,11 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             border-radius: 50px;
             letter-spacing: 3px;
             color: var(--greyDark);
+
+            @media screen and (max-width: 400px) {
+                font-size: 1.5rem;
+                padding: 1rem 1.5rem 1rem 1.5rem;
+            }
         }
 
         & .empty {
@@ -138,12 +180,15 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     transition: .3s ease;
 
     color: var(--greyDark);
-    // font-family: 'Alegreya Sans SC', sans-serif;
-    // font-family: 'Lexend', sans-serif;
     font-family: 'Sen', sans-serif;
-    // font-family: 'Viga', sans-serif;
-    // font-family: 'Secular One', sans-serif;
-    // font-family: 'Staatliches', cursive;
+
+    @media screen and (max-width: 400px) {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
     & .profileImage {
         border: solid 4px var(--greyDark-2);
@@ -158,17 +203,30 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         border-radius: 50%;
         filter: brightness(150%);
         box-shadow: $ultimate-shadow;
+
+        @media screen and (max-width: 400px) {
+            margin-bottom: 2rem;
+        }
+
     }
 
 
     & .profileDetails {
-        height: 8rem;
+        height: 5rem;
         // border: solid;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
         margin: 0 0 0 3rem;
+
+        @media screen and (max-width: 400px) {
+            margin: 0;
+            display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        }
 
         & p:first-child {
             font-size: 1.5rem;
@@ -180,6 +238,12 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             }
 
             transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+            @media screen and (max-width: 400px) {
+                height: 0;
+                font-size: 2.5rem;
+                margin-bottom: 4rem;
+            }
 
         }
 
@@ -202,8 +266,24 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             align-items: center;
             width: 30rem;
 
+            @media screen and (max-width: 750px) {
+                width: 22.5rem;
+            }
+
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
+            @media screen and (max-width: 400px) {
+                display: flex;
+                align-items: flex-start;
+                height: 1rem;
+            }
+
             & div {
                 height: .6rem;
+                @media screen and (max-width: 400px) {
+                    height: 1.2rem;
+                }
             }
 
             & p {
@@ -211,6 +291,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 color: var(--greyDark-2);
                 margin-right: 1.5rem;
                 margin-left: 1.5rem;
+                @media screen and (max-width: 400px) {
+                    align-items: flex-start;
+                    padding-bottom: 1rem;
+                }
             }
         }
     }

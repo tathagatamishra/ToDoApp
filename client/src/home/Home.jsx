@@ -45,6 +45,7 @@ export default function Todo() {
         <h1>
           WELCOME 2 TO DO{" "}
           <NavLink
+            target="_blank"
             to="https://github.com/tathagatamishra/ToDoApp"
             className="git"
           >

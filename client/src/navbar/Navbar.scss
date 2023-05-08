@@ -26,16 +26,20 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     padding: 1rem;
     margin-bottom: 3rem;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
     @media screen and (max-width: 750px) {
-        width: 60rem;
+        width: 65rem;
     }
     @media screen and (max-width: 600px) {
-        width: 50rem;
+        width: 60rem;
     }
     @media screen and (max-width: 500px) {
+        width: 45rem;
+    }
+    @media screen and (max-width: 400px) {
         width: 40rem;
     }
     @media screen and (max-width: 330px) {

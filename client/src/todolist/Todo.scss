@@ -36,6 +36,34 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     grid-column-gap: 3.5rem;
     grid-row-gap: 3.5rem;
 
+    @media screen and (max-width: 750px) {
+        width: 65rem;
+        padding: 3rem;
+        grid-column-gap: 3rem;
+    }
+    @media screen and (max-width: 600px) {
+        width: 60rem;
+        grid-column-gap: 2rem;
+    }
+    @media screen and (max-width: 500px) {
+        width: 45rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    @media screen and (max-width: 400px) {
+        width: 40rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    @media screen and (max-width: 330px) {
+        width: 30rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     & .taskCard {
         justify-self: center;
         width: 20rem;
@@ -55,6 +83,22 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         user-select: none;
         cursor: pointer;
         transition: .3s ease;
+
+        @media screen and (max-width: 750px) {
+            width: 17rem;
+        }
+        @media screen and (max-width: 600px) {
+            width: 16rem;
+        }
+        @media screen and (max-width: 500px) {
+            width: 23rem;
+        }
+        @media screen and (max-width: 400px) {
+            width: 23rem;
+        }
+        @media screen and (max-width: 330px) {
+            width: 23rem;
+        }
 
         &__secondary {
             color: var(--greyDark);
@@ -86,6 +130,22 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 user-select: none;
                 cursor: pointer;
                 transition: .3s ease;
+
+                @media screen and (max-width: 750px) {
+                    width: 15rem;
+                }
+                @media screen and (max-width: 600px) {
+                    width: 15rem;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 18rem;
+                }
+                @media screen and (max-width: 400px) {
+                    width: 18rem;
+                }
+                @media screen and (max-width: 330px) {
+                    width: 18rem;
+                }
 
                 &__secondary {
                     color: var(--greyDark);
@@ -226,6 +286,22 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 user-select: none;
                 cursor: pointer;
                 transition: .3s ease;
+
+                @media screen and (max-width: 750px) {
+                    width: 15rem;
+                }
+                @media screen and (max-width: 600px) {
+                    width: 15rem;
+                }
+                @media screen and (max-width: 500px) {
+                    width: 18rem;
+                }
+                @media screen and (max-width: 400px) {
+                    width: 18rem;
+                }
+                @media screen and (max-width: 330px) {
+                    width: 18rem;
+                }
 
                 &__secondary {
                     color: var(--greyDark);
