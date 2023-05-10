@@ -1,16 +1,3 @@
-// :root {
-//     --primary-light: #8abdff;
-//     --primary: #6d5dfc;
-//     --primary-dark: #5b0eeb;
-
-//     --white: #FFFFFF;
-//     --greyLight-1: #E4EBF5;
-//     --greyLight-2: #c8d0e7;
-//     --greyLight-3: #bec8e4;
-//     --greyDark: #9baacf;
-//     --greyDark-2: #737d97;
-// }
-
 $shadow: .3rem .3rem .6rem var(--greyLight-2),
     -.2rem -.2rem .5rem var(--white);
 $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
@@ -23,7 +10,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
     width: 75rem;
     height: fit-content;
     min-height: 40rem;
-    // margin-bottom: 2rem;
     border-radius: 3rem;
     box-shadow: $ultimate-shadow;
     border: solid 2px white;
@@ -41,22 +27,26 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         padding: 3rem;
         grid-column-gap: 3rem;
     }
+
     @media screen and (max-width: 600px) {
         width: 60rem;
         grid-column-gap: 2rem;
     }
+
     @media screen and (max-width: 500px) {
         width: 45rem;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     @media screen and (max-width: 400px) {
         width: 40rem;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     @media screen and (max-width: 330px) {
         width: 30rem;
         display: flex;
@@ -70,7 +60,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         height: fit-content;
         padding: 1rem;
         border-radius: 1rem;
-
         padding-bottom: 4rem;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
@@ -87,15 +76,19 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
         @media screen and (max-width: 750px) {
             width: 17rem;
         }
+
         @media screen and (max-width: 600px) {
             width: 16rem;
         }
+
         @media screen and (max-width: 500px) {
             width: 23rem;
         }
+
         @media screen and (max-width: 400px) {
             width: 23rem;
         }
+
         @media screen and (max-width: 330px) {
             width: 23rem;
         }
@@ -118,7 +111,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 height: 100%;
                 min-height: 3.5rem;
                 border: solid;
-                // padding: 1rem;
                 margin-bottom: 2.5rem;
                 border-radius: 12px;
                 box-shadow: $shadow;
@@ -134,15 +126,19 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 @media screen and (max-width: 750px) {
                     width: 15rem;
                 }
+
                 @media screen and (max-width: 600px) {
                     width: 15rem;
                 }
+
                 @media screen and (max-width: 500px) {
                     width: 18rem;
                 }
+
                 @media screen and (max-width: 400px) {
                     width: 18rem;
                 }
+
                 @media screen and (max-width: 330px) {
                     width: 18rem;
                 }
@@ -191,7 +187,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
                                 &:focus {
                                     outline: none;
-                                    // background: #ffffff;
                                 }
                             }
 
@@ -216,7 +211,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
                                 &:focus {
                                     outline: none;
-                                    // background: #ffffff;
                                 }
                             }
                         }
@@ -224,7 +218,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                         & button {
                             padding: 1px;
                             width: 21%;
-                            // height: 9.7rem;
                             min-height: 100px;
                             border: none;
                             font-size: 2rem;
@@ -236,7 +229,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
                             &:hover {
-                                // box-shadow: $shadow;
                                 background: #dfdbff;
                                 transform: translateY(-.5px);
                             }
@@ -244,12 +236,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             &:active {
                                 color: var(--primary);
                                 transform: translateY(.5px);
-                                // box-shadow: $inner-shadow;
                             }
                         }
 
                         transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-
                     }
 
 
@@ -272,9 +262,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 height: fit-content;
                 min-height: 3.5rem;
                 border-radius: 1rem;
-                // padding-bottom: 1rem;
-                // padding-left: 1rem;
-                // padding-right: 1rem;
                 margin-bottom: 2rem;
 
                 justify-self: center;
@@ -290,15 +277,19 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 @media screen and (max-width: 750px) {
                     width: 15rem;
                 }
+
                 @media screen and (max-width: 600px) {
                     width: 15rem;
                 }
+
                 @media screen and (max-width: 500px) {
                     width: 18rem;
                 }
+
                 @media screen and (max-width: 400px) {
                     width: 18rem;
                 }
+
                 @media screen and (max-width: 330px) {
                     width: 18rem;
                 }
@@ -311,10 +302,8 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                         display: flex;
                         justify-content: flex-end;
                         align-items: flex-start;
-                        // position: absolute;
                         width: 100%;
                         height: .5rem;
-                        // border: solid 1px;
 
                         & .crossButton {
                             width: 2.1rem;
@@ -340,20 +329,17 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             }
                         }
 
-
                         transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
                     }
 
                     & .text {
                         padding: 1rem;
-                        // border: solid;
                         display: flex;
                         flex-direction: column;
                         justify-content: flex-start;
 
                         & h2 {
-                            // margin-top: 5px;
                             width: 100%;
                             font-size: 1.2rem;
                             margin-bottom: 1rem;
@@ -362,7 +348,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
                         & p {
                             font-size: 1.3rem;
-                            // text-align: justify;
                             font-size: 1rem;
                             color: var(--greyDark-2);
                         }
@@ -379,7 +364,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
                         transform: translateY(-3px);
                     }
-
                 }
 
 

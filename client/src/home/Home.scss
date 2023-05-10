@@ -63,9 +63,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
 
     & .hero {
-        // width: 100%;
         margin-bottom: 4rem;
-
 
         & h1 {
             height: fit-content;
@@ -84,6 +82,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 font-size: 2.8rem;
                 margin-bottom: 3rem;
             }
+
             @media screen and (max-width: 400px) {
                 font-size: 2.5rem;
             }
@@ -131,6 +130,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 font-size: 1.3rem;
                 padding-right: 20rem;
             }
+
             @media screen and (max-width: 400px) {
                 font-size: 1.3rem;
                 padding-right: 18rem;
@@ -141,14 +141,12 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                 padding-right: 15rem;
             }
         }
-
     }
 
     & .heroBody {
         width: 100%;
         display: flex;
         flex-direction: row;
-
 
         @media screen and (max-width: 500px) {
             padding-top: 0rem;
@@ -159,7 +157,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             align-items: flex-end;
             height: auto;
         }
-        
+
         @media screen and (max-width: 400px) {
             padding-top: 0rem;
             margin-top: 3rem;
@@ -182,9 +180,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             }
 
             @media screen and (max-width: 500px) {
-                
+
                 width: 100%;
             }
+
             @media screen and (max-width: 400px) {
                 margin-right: 1rem;
             }
@@ -219,6 +218,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                         padding-left: 20rem;
                         padding-right: 3rem;
                     }
+
                     @media screen and (max-width: 400px) {
                         font-size: 1.3rem;
                         position: absolute;
@@ -244,10 +244,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                     font-size: 1.3rem;
 
                 }
+
                 @media screen and (max-width: 400px) {
                     font-size: 1.3rem;
                     margin-top: 4rem;
-                    // padding-left: 2rem;
                     margin-left: 5rem;
                 }
 
@@ -256,7 +256,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                     margin-top: 0;
                     padding-left: 1rem;
                 }
-
             }
 
             & .startBtn {
@@ -274,6 +273,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                     padding-right: 25rem;
                     margin: 0;
                 }
+
                 @media screen and (max-width: 400px) {
                     padding-right: 18rem;
                     margin: 1rem;
@@ -348,7 +348,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             }
         }
 
-        
         & .demo {
             display: flex;
 
@@ -359,10 +358,10 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             @media screen and (max-width: 500px) {
                 height: 32rem;
             }
+
             @media screen and (max-width: 400px) {
                 height: 30rem;
             }
-
 
             & .demoTaskCard {
                 justify-self: center;
@@ -389,6 +388,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                     padding-bottom: 1rem;
                     margin-top: 1.6rem;
                 }
+
                 @media screen and (max-width: 400px) {
                     width: 18rem;
                     padding-bottom: 1rem;
@@ -417,6 +417,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             margin-bottom: 1.5rem;
                             margin-top: .5rem;
                         }
+
                         @media screen and (max-width: 400px) {
                             font-size: 1.5rem;
                             margin-bottom: 1.5rem;
@@ -453,6 +454,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             height: 100%;
                             min-height: 3rem;
                         }
+
                         @media screen and (max-width: 400px) {
                             width: 15rem;
                             height: 100%;
@@ -465,7 +467,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             min-height: 2.5rem;
                             border: solid 1.5px;
                         }
-
 
                         &__secondary {
                             color: var(--greyDark);
@@ -483,6 +484,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                     height: 7rem;
                                     min-height: 3rem;
                                 }
+
                                 @media screen and (max-width: 400px) {
                                     width: 100%;
                                     height: 7rem;
@@ -509,6 +511,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                     @media screen and (max-width: 500px) {
                                         height: 7rem;
                                     }
+
                                     @media screen and (max-width: 400px) {
                                         height: 6rem;
                                     }
@@ -599,6 +602,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                     @media screen and (max-width: 500px) {
                                         min-height: 70px;
                                     }
+
                                     @media screen and (max-width: 400px) {
                                         min-height: 70px;
                                     }
@@ -654,6 +658,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                             height: 6rem;
                             width: 15.5rem;
                         }
+
                         @media screen and (max-width: 400px) {
                             height: 5rem;
                             width: 14.5rem;
@@ -726,6 +731,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                         font-size: 1rem;
                                         margin-bottom: .7rem;
                                     }
+
                                     @media screen and (max-width: 400px) {
                                         font-size: 1rem;
                                         margin-bottom: .7rem;
@@ -744,6 +750,7 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
                                     @media screen and (max-width: 500px) {
                                         font-size: .8rem;
                                     }
+
                                     @media screen and (max-width: 400px) {
                                         font-size: .8rem;
                                     }
@@ -765,7 +772,6 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
 
                                 transform: translateY(-3px);
                             }
-
                         }
 
                         transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -788,5 +794,4 @@ $ultimate-shadow: .8rem .8rem 1.4rem var(--greyLight-2),
             }
         }
     }
-
 }
