@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Todo.scss";
 import { IonIcon } from "@ionic/react";
-import { close } from "ionicons/icons";
+import { checkmark, close } from "ionicons/icons";
 import axios from "axios";
 
 export default function Todo() {
@@ -9,14 +9,17 @@ export default function Todo() {
   const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [isDone, setIsDone] = useState(false);
+  const [doneStyle, setDoneStyle] = useState({});
+  const [tickStyle, setTickStyle] = useState({});
 
   // const BASE_URL = "http://localhost:5000"
-  const BASE_URL = "https://what-to-do-bro.vercel.app"
+  const BASE_URL = "https://what-to-do-bro.vercel.app";
 
   // Fetching Data
   useEffect(() => {
     let id = localStorage.getItem("user-id");
-    setId(id)
+    setId(id);
 
     axios
       .get(`${BASE_URL}/read/${id}`)
@@ -156,6 +159,60 @@ export default function Todo() {
         console.log(err);
       });
   }
+  function done1(key) {
+
+    if (isDone) {
+      setIsDone(false);
+      setDoneStyle({
+        background: "rgb(148, 230, 127)"
+      });
+      setTickStyle({
+        background: "#E4EBF5"
+      })
+    } else {
+      setIsDone(true);
+      setDoneStyle({
+        background: "#E4EBF5"
+      });
+      setTickStyle({})
+    }
+  }
+  function done2(key) {
+
+    if (isDone) {
+      setIsDone(false);
+      setDoneStyle({
+        background: "rgb(148, 230, 127)"
+      });
+      setTickStyle({
+        background: "#E4EBF5"
+      })
+    } else {
+      setIsDone(true);
+      setDoneStyle({
+        background: "#E4EBF5"
+      });
+      setTickStyle({})
+    }
+  }
+  function done3(key) {
+
+    if (isDone) {
+      setIsDone(false);
+      setDoneStyle({
+        background: "rgb(148, 230, 127)"
+      });
+      setTickStyle({
+        background: "#E4EBF5"
+      })
+    } else {
+      setIsDone(true);
+      setDoneStyle({
+        background: "#E4EBF5"
+      });
+      setTickStyle({})
+    }
+  }
 
   if (data) {
     return (
@@ -193,6 +250,10 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
+                  <div className="doneButton" style={doneStyle} onClick={() => done1(i)}>
+                    <div className="x" style={tickStyle}></div>
+                    <div className="y" style={tickStyle}></div>
+                  </div>
                   <div className="crossButton" onClick={() => deletePending(i)}>
                     <IonIcon icon={close} />
                   </div>
@@ -239,6 +300,10 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
+                  <div className="doneButton" style={doneStyle} onClick={() => done2(i)}>
+                    <div className="x" style={tickStyle}></div>
+                    <div className="y" style={tickStyle}></div>
+                  </div>
                   <div
                     className="crossButton"
                     onClick={() => deleteProgress(i)}
@@ -288,6 +353,10 @@ export default function Todo() {
             return (
               <div key={i} className="taskItem taskItem__secondary">
                 <div className="cross">
+                  <div className="doneButton" style={doneStyle} onClick={() => done3(i)}>
+                    <div className="x" style={tickStyle}></div>
+                    <div className="y" style={tickStyle}></div>
+                  </div>
                   <div
                     className="crossButton"
                     onClick={() => deleteCompleted(i)}
