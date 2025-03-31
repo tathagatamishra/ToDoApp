@@ -5,7 +5,7 @@ Todo Web Application for a client. Where the client is able to store its daily T
 
 <br>
 <h4 align="left">
-  Frontend Deployed on Netlify &#160; <img src="https://media.giphy.com/media/FbUuPsOW3oOCdAHexF/giphy.gif" width="50"> &#160; https://what2dobro.netlify.app/
+  Frontend Deployed on Vercel &#160; <img src="https://media.giphy.com/media/FbUuPsOW3oOCdAHexF/giphy.gif" width="50"> &#160; https://what2do.vercel.app/
 </h4>
 <h4 align="left">
   Backend Deployed on Vercel &#160; <img src="https://media.giphy.com/media/FbUuPsOW3oOCdAHexF/giphy.gif" width="50"> &#160; https://what-to-do-bro.vercel.app
